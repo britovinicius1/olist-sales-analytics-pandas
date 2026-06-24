@@ -82,3 +82,14 @@ medias_por_filme.head(5)
 #a maioria dos filmes tem nota entre 3 e 4
 medias_por_filme.plot(kind='hist')
 # %%
+sns.boxplot(medias_por_filme)
+# %%
+medias_por_filme.describe()
+# %%
+import matplotlib.pyplot as plt
+
+
+
+sns.displot(medias_por_filme, kde=True)
+plt.title('Histograma das médias dos filmes')
+# %%
