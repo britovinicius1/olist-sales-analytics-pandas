@@ -1,7 +1,7 @@
 
 #%%
 import pandas as pd
-import matplotlib.pyplot
+import matplotlib.pyplot as plt
 import seaborn as sns
 #%%
 tmdb = pd.read_csv('../data02/tmdb_5000_movies.csv')
@@ -33,8 +33,26 @@ sns.countplot(data=tmdb.query("original_language != 'en'"),
               x="original_language")
 # %%
 
+##
+#
+
 sns.countplot(data=tmdb.query("original_language != 'en'"),
               order=total_de_outros_filmes_por_lingua.index,
               hue="original_language",
               x="original_language")
+# %%
+plt.figure(figsize=(16,8))
+sns.countplot(data=tmdb.query("original_language != 'en'"),
+              order=total_de_outros_filmes_por_lingua.index,
+              palette="light:seagreen_r",
+              hue="original_language",
+              stat="percent",
+              hue_order=total_de_outros_filmes_por_lingua.index,
+              x="original_language")
+
+plt.title("Distribuição das linguagem exceto EN")
+
+# %%
+tmdb.query("original_language != 'en'")["original_language"].value_counts(normalize=True)
+
 # %%
